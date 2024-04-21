@@ -1,0 +1,67 @@
+//******TASK 3******//
+
+/*Create a travel itinerary planner that allows users to 
+input destinations, dates, and preferences to generate
+a detailed travel plan. Include features like maps,
+weather information, and budget calculations.*/
+
+
+package codealpha;
+import java.util.Scanner;
+
+public class TravelItineraryPlanner {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Get destination from user
+        System.out.print("Enter destination: ");
+        String destination = scanner.nextLine();
+
+        // Get dates from user
+        System.out.print("Enter start date (YYYY-MM-DD): ");
+        String startDate = scanner.nextLine();
+        System.out.print("Enter end date (YYYY-MM-DD): ");
+        String endDate = scanner.nextLine();
+
+        // Get preferences from user
+        System.out.print("Enter your budget: ");
+        double budget = scanner.nextDouble();
+        System.out.print("Enter your preferred mode of transportation: ");
+        String transportation = scanner.next();
+
+        // Display itinerary
+        System.out.println("\nTravel Itinerary:");
+        System.out.println("Destination: " + destination);
+        System.out.println("Travel Dates: " + startDate + " to " + endDate);
+        System.out.println("Preferred Transportation: " + transportation);
+
+        // Call methods to display weather and calculate budget
+        displayWeather(destination, startDate, endDate);
+        calculateBudget(budget);
+
+        scanner.close();
+    }
+
+    private static void displayWeather(String destination, String startDate, String endDate) {
+        // Here, you could call an API to fetch and display weather information
+        // For simplicity, let's just print a message
+        System.out.println("\nWeather for " + destination + " during your travel dates:");
+        System.out.println("Sunny with occasional showers");
+    }
+
+    private static void calculateBudget(double budget) {
+        // Here, you could calculate expenses based on destination, accommodation, etc.
+        // For simplicity, let's just print a message
+        System.out.println("\nEstimated budget breakdown:");
+        System.out.println("Transportation: $200");
+        System.out.println("Accommodation: $300");
+        System.out.println("Food and other expenses: $150");
+        double totalExpense = 200 + 300 + 150;
+        System.out.println("Total estimated expense: $" + totalExpense);
+        if (totalExpense <= budget) {
+            System.out.println("You are within budget!");
+        } else {
+            System.out.println("You have exceeded your budget.");
+        }
+    }
+}
